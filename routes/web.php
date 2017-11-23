@@ -66,3 +66,6 @@ Route::get('/dashboard', function(){
 	return view('admin.dashboard');
 });
 
+Route::get('home-page', function(){
+	return view('web.home');
+})->name('home.index');
