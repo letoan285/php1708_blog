@@ -79,7 +79,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel 5.5
+                   @if ($age > 18)
+                       {{ 'Di tu'}}
+                    @else
+                    {{'khong sao'}}
+                   @endif
+
+                   {!!$address!!}
                 </div>
                
                 <div class="links">

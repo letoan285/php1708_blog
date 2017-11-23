@@ -52,3 +52,17 @@ Route::get('/posts', function(){
 	// dd($posts);
 	return view('homePage', compact('posts'));
 });
+
+
+
+Route::get('/', function(){
+	$name = ['Van Toan', 'COng phuong'];
+	$age = 10;
+	$address = "<a href='google.com'>Ha noi, Vietnam</a>";
+	return view('welcome', compact('name', 'age', 'address'));
+})->name('home');
+
+Route::get('/dashboard', function(){
+	return view('admin.dashboard');
+});
+
