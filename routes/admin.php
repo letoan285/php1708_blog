@@ -19,7 +19,15 @@ Route::get('/test', function(){
 
 
 Route::get('posts', 'HomeController@index');
+
 Route::get('dashboard', 'HomeController@dashboard');
+
+Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+Route::get('users', 'Admin\DashboardController@showUsers');
+
+Route::get('categories', 'Admin\CategoryController@index')->name('categories.index');
+
+// Route::get('insert/{title}/{content}/{short}/{author}', 'Admin\DashboardController@insert');
 
 
 
@@ -31,9 +39,3 @@ Route::get('dashboard', 'HomeController@dashboard');
 // 	// dd($bar);
 // });
 
-Route::get('/', function(){
-
-	return 'Home page';
-	// return response()->json(['name', 'le vantoan', 'address'=>'Ha Noi']) ;
-	// return view('homePage');
-});

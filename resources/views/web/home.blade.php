@@ -294,5 +294,8 @@
             </div>
             <!--pagination-->
         </div>
+        <script>
+        	console.log('ok');
+        </script>
 
 @endsection

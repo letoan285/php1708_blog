@@ -25,3 +25,4 @@
 <script src="{{asset('assets/vendor/visible/visible.js')}}"></script>
 <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
 <script src="{{asset('assets/js/scripts.js')}}"></script>
+@yield('js')

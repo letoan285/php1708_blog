@@ -25,7 +25,7 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <h3>{{$posts}}<sup style="font-size: 20px"></sup></h3>
 
           <p>Bounce Rate</p>
         </div>
@@ -40,7 +40,7 @@
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3>44</h3>
+          <h3>{{$users}}</h3>
 
           <p>User Registrations</p>
         </div>
@@ -67,5 +67,4 @@
     </div>
     <!-- ./col -->
   </div>
-
-@endsection
+  @endsection
