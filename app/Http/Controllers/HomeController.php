@@ -3,27 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // return 'day la trang index->home controller';
-        return view('admin.posts.index');
+        return view('home');
     }
-    public function dashboard()
-    {
-        // return 'day la trang index->home controller';
-        $users = DB::select('select * from users');
-        dd($users);
-
-        return view('layouts.admin');
-    }
-
 }

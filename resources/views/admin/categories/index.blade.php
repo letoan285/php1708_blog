@@ -9,7 +9,7 @@
 			<th>#</th>
 			<th>Name</th>
 			<th>Slug</th>
-			<th><a class="btn btn-success" href=""><i class="fa fa-plus"></i>&nbsp; Thêm</a></th>
+			<th><a class="btn btn-success" href="{{ route('categories.create') }}"><i class="fa fa-plus"></i>&nbsp; Thêm</a></th>
 		</tr>
 	</thead>
 	<tbody>

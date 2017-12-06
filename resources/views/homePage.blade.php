@@ -1,4 +1,4 @@
-<h1>Post list</h1>
+{{-- <h1>Post list</h1>
 <a href="{{route('home')}}">Ve Trang Chu</a>
 @foreach ($posts as $post)
 <p><b>{{$post['title']}}</b></p>
@@ -6,4 +6,4 @@
 <p>{{$post['content']}}</p><br>
 <small>{{$post['author']}}</small>
 @endforeach
-<a href="{{route('home')}}">Ve Trang chu</a>
+<a href="{{route('home')}}">Ve Trang chu</a> --}}

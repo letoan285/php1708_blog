@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function index(){
-    	$users = DB::table('users')->count();
-    	$posts = DB::table('posts')->count();
-    	return view('admin.dashboard', compact('users', 'posts'));
+    	// $users = DB::table('users')->count();
+    	// $posts = DB::table('posts')->count();
+    	// return view('admin.dashboard', compact('users', 'posts'));
+        return view('admin.dashboard');
     }
     public function showUsers(){
     	$users = DB::table('users')->pluck('firstName', 'email');

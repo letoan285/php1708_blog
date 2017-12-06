@@ -18,7 +18,7 @@ Route::get('/test', function(){
 
 
 
-Route::get('posts', 'HomeController@index');
+// Route::get('posts', 'HomeController@index');
 
 Route::get('dashboard', 'HomeController@dashboard');
 
@@ -26,6 +26,8 @@ Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
 Route::get('users', 'Admin\DashboardController@showUsers');
 
 Route::get('categories', 'Admin\CategoryController@index')->name('categories.index');
+Route::get('categories/create', 'Admin\CategoryController@create')->name('categories.create');
+Route::post('categories', 'Admin\CategoryController@store')->name('categories.store');
 
 // Route::get('insert/{title}/{content}/{short}/{author}', 'Admin\DashboardController@insert');
 

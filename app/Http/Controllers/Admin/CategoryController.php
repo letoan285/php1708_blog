@@ -13,4 +13,17 @@ class CategoryController extends Controller
     	$categories = Category::all();
     	return view('admin.categories.index', compact('categories'));
     }
+    public function create()
+    {
+    	return view('admin.categories.create');
+    }
+    public function store(Request $request)
+    {
+    	$this->validate($request, [
+    		'name' => 'required|min:6|max:255',
+    		'slug' => 'required'
+    	]);
+
+    	dd($request->all());
+    }
 }
