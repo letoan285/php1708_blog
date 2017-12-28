@@ -18,7 +18,7 @@ Route::get('/', function(){
 	$name = ['Van Toan', 'COng phuong'];
 	$age = 10;
 	$address = "<a href='google.com'>Ha noi, Vietnam</a>";
-	return view('welcome', compact('name', 'age', 'address'));
+	return view('web', compact('name', 'age', 'address'));
 });
 
 // Route::get('/dashboard', function(){

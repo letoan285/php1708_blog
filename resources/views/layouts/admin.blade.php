@@ -8,6 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   @include('inc.style')
+  @yield('css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -249,5 +250,6 @@
 </div>
 <!-- ./wrapper -->
 @include('inc.javascript')
+@yield('js')
 </body>
 </html>

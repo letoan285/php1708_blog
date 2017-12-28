@@ -12,3 +12,4 @@
 <link rel="stylesheet" href="{{asset('assets/css/shortcodes.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/default-theme.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">

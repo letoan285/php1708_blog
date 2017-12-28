@@ -9,12 +9,14 @@
 <script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-{{-- <script src="plugins/bootbox/bootbox.min.js')}}"></script> --}}
+<script src="{{asset('plugins/bootbox/bootbox.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+<script src="{{asset('plugins/jQueryUI/jquery.validate.min.js')}}"></script>
+<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('plugins/ckfinder/ckfinder.js')}}"></script>
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree();
   });
 </script>
-@yield('js')

@@ -3,6 +3,11 @@
 <h1>Categories List</h1>
 @endsection
 @section('content')
+@if (session()->has('notif'))
+	<div class="alert alert-warning col-sm-4 pull-right">
+		<span>{{session()->get('notif')}}</span>
+	</div>
+@endif
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
@@ -19,11 +24,36 @@
 				<td>{{$category->name}}</td>
 				<td>{{$category->slug}}</td>
 				<td>
-					<a class="btn btn-info" href=""><i class="fa fa-pencil"></i></a>
-					<a class="btn btn-danger" href=""><i class="fa fa-times"></i></a>
+					<a class="btn btn-info" href="{{ route('categories.edit', ['id'=>$category->id]) }}"><i class="fa fa-pencil"></i></a>
+					<a class="btn btn-danger" onclick="confirmRemove('{{ route('categories.destroy', ['id'=>$category->id]) }}');" href="javascript:;"><i class="fa fa-times"></i></a>
 				</td>
 			</tr>
 		@endforeach
 	</tbody>
 </table>
+@endsection
+@section('js')
+<script>
+	function confirmRemove(url){
+		bootbox.confirm({
+		    message: "Cậu muốn xóa chứ?",
+		    buttons: {
+		        confirm: {
+		            label: 'Đúng thế',
+		            className: 'btn-success'
+		        },
+		        cancel: {
+		            label: 'Không xóa',
+		            className: 'btn-danger'
+		        }
+		    },
+		    callback: function (result) {
+		        if(result){
+		        	window.location.href= url;
+		        };
+		    }
+		});
+	}
+	
+</script>
 @endsection
