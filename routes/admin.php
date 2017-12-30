@@ -51,12 +51,18 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::get('posts/edit/{id}', 'PostController@edit')->name('posts.edit');
 	Route::post('posts/update/{id}', 'PostController@update')->name('posts.update');
 	Route::get('posts/delete/{id}', 'PostController@destroy')->name('posts.destroy');
+
 	Route::get('posts/{id}', 'PostController@show')->name('posts.show');
 
 
 
 	Route::get('tags', 'TagController@index')->name('tags.index');
 	Route::post('tags', 'TagController@store')->name('tags.store');
+	Route::get('tags/edit/{id}', 'TagController@edit')->name('tags.edit');
+	Route::post('tags/update/{id}', 'TagController@update')->name('tags.update');
+
+	Route::get('tags/{id}', 'TagController@show')->name('tags.show');
+	Route::get('tags/delete/{id}', 'TagController@destroy')->name('tags.destroy');
 
 });
 

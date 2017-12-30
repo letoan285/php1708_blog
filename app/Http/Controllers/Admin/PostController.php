@@ -16,11 +16,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts= Post::orderBy('id', 'desc')->paginate(10);
-        // dd($posts);
-        return view('admin.posts.index', compact('posts'));
+        $keyword = $request->keyword;
+        if(!$keyword){
+            $posts= Post::orderBy('id', 'desc')->paginate(10);  
+        } else {
+            $posts= Post::where('title', 'like', "%$keyword%")->paginate(10);
+            $posts->withPath("?keyword=$keyword"); 
+        }
+        return view('admin.posts.index', compact('posts', 'keyword'));
     }
 
     /**
@@ -124,6 +129,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         // dd($post);
+        $post->tags()->detach();
         $post->delete();
         if (file_exists($post->featured)) {
             unlink(public_path($post->featured));

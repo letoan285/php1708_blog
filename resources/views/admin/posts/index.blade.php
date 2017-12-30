@@ -1,5 +1,13 @@
 @extends('layouts.admin')
 @section('content')
+<div class="row">
+	<div class="col-md-6">
+		<form method="get" class="form-inline">
+			<input type="text" class="form-control" name="keyword" value="{{$keyword}}">
+			<button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
+</div>
 <h2>Danh sách bài viết</h2>
 <table class="table table-bordered table-condensed">
 	<thead>
@@ -16,7 +24,9 @@
 			<tr>
 				<td>{{$post->id}}</td>
 				<td><img width="120" src="{{asset($post->featured)}}" alt=""></td>
-				<td>{{str_limit($post->title, 60)}}</td>
+				<td>
+					<a href="{{ route('posts.show', $post->id) }}">{{str_limit($post->title, 60)}}</a>
+				</td>
 				<td>{{$post->category->name}}</td>
 				<td>
 					<a class="btn btn-sm btn-info" href="{{ route('posts.edit', $post->id) }}"><i class="fa fa-pencil"></i></a>

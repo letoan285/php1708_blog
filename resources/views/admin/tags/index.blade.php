@@ -30,11 +30,11 @@
 			@foreach ($tags as $tag)
 				<tr>
 					<td>{{$tag->id}}</td>
-					<td>{{$tag->name}}</td>
+					<td><a href="{{ route('tags.show', $tag->id) }}">{{$tag->name}}</a></td>
 					<td>{{$tag->slug}}</td>
 					<td>
-						<a class="btn btn-sm btn-info" href=""><i class="fa fa-pencil"></i></a>
-						<a class="btn btn-sm btn-danger" href=""><i class="fa fa-times"></i></a>
+						<a class="btn btn-sm btn-info" href="{{ route('tags.edit', $tag->id) }}"><i class="fa fa-pencil"></i></a>
+						<a class="btn btn-sm btn-danger" href="{{ route('tags.destroy', $tag->id) }}"><i class="fa fa-times"></i></a>
 					</td>
 				</tr>
 			@endforeach
