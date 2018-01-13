@@ -64,6 +64,8 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::get('tags/{id}', 'TagController@show')->name('tags.show');
 	Route::get('tags/delete/{id}', 'TagController@destroy')->name('tags.destroy');
 
+	Route::post('comments/{post_id}', 'CommentController@store')->name('comments.store');
+
 });
 
 

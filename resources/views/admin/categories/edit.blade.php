@@ -23,6 +23,22 @@
 	    @endif
 		
 	</div>
+	<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+		<label for="">Danh mục cha</label>
+		<select name="parent_id" class="form-control">
+			<option value="0">--Danh mục cha--</option>
+			@foreach ($categories as $cate)
+				<option  @if ($cate->id == $category->parent_id)
+					selected
+				@endif
+				value="{{$cate->id}}">{{$cate->name}}</option>
+			@endforeach
+		</select>
+		@if (count($errors) > 0)
+	        <span style="color: red">{{ $errors->first('name') }}</span>
+	    @endif
+		
+	</div>
 
 	<div class="form-group">
 		<button class="btn btn-success" type="submit">Thêm mới</button>

@@ -2,3 +2,29 @@
 	color: red;
 }
 
+.input-comment1{
+	margin-left: -16px;
+}
+
+.input-comment2{
+	float: right;
+}
+
+.comment-text{
+	width: 510px;
+}
+
+.user-comment{
+	font-weight: bold;
+	font-size: 18px;
+
+}
+/*small .pull-right{
+	margin-bottom: 5px;
+	color: #ccc;
+}*/
+
+.user-comment-text{
+	color: #444;
+}
+

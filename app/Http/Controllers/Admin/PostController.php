@@ -18,14 +18,18 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
+        $pageSize = $request->pageSize == null ? 10 : $request->pageSize;
         $keyword = $request->keyword;
+        $path = "";
         if(!$keyword){
-            $posts= Post::orderBy('id', 'desc')->paginate(10);  
+            $posts= Post::orderBy('id', 'desc')->paginate($pageSize);
+            $path .="?pageSize=$pageSize"; 
         } else {
-            $posts= Post::where('title', 'like', "%$keyword%")->paginate(10);
-            $posts->withPath("?keyword=$keyword"); 
+            $posts= Post::where('title', 'like', "%$keyword%")->paginate($pageSize);
+            $path .="?pageSize=$pageSize&keyword=$keyword";
         }
-        return view('admin.posts.index', compact('posts', 'keyword'));
+        $posts->withPath($path); 
+        return view('admin.posts.index', compact('posts', 'keyword', 'pageSize'));
     }
 
     /**
@@ -76,7 +80,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('admin.posts.show', compact('post'));
+        $comments = Post::find($id)->comments()->orderBy('created_at', 'desc')->get();
+        // orderBy('name')
+        // dd($commesnts);
+
+        // dd($comments);
+        return view('admin.posts.show', compact('post', 'comments'));
     }
 
     /**

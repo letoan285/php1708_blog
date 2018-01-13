@@ -13,6 +13,7 @@
 		<tr>
 			<th>#</th>
 			<th>Name</th>
+			<th>Danh mục cha</th>
 			<th>Slug</th>
 			<th><a class="btn btn-success" href="{{ route('categories.create') }}"><i class="fa fa-plus"></i>&nbsp; Thêm</a></th>
 		</tr>
@@ -22,6 +23,7 @@
 			<tr>
 				<td>{{$loop->iteration}}</td>
 				<td>{{$category->name}}</td>
+				<td>{{$category->getParentName()}}</td>
 				<td>{{$category->slug}}</td>
 				<td>
 					<a class="btn btn-info" href="{{ route('categories.edit', ['id'=>$category->id]) }}"><i class="fa fa-pencil"></i></a>

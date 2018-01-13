@@ -19,7 +19,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-    	return view('admin.categories.create');
+        $categories = Category::all();
+    	return view('admin.categories.create', compact('categories'));
     }
 
 
@@ -27,6 +28,7 @@ class CategoryController extends Controller
     {
     	$model = new Category();
         $model->name = $request->name;
+        $model->parent_id = $request->parent_id;
         $model->slug = str_slug($request->name).'.html';
 
         $model->save();
@@ -37,7 +39,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit', compact('category'));
+        $categories = Category::all();
+        return view('admin.categories.edit', compact('category', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -48,6 +51,7 @@ class CategoryController extends Controller
         $model->name = $request->name;
 
         $model->slug = $request->slug;
+        $model->parent_id = $request->parent_id;
       
         $model->save();
 

@@ -2,9 +2,20 @@
 @section('content')
 <div class="row">
 	<div class="col-md-6">
-		<form method="get" class="form-inline">
-			<input type="text" class="form-control" name="keyword" value="{{$keyword}}">
-			<button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+		<form method="get" class="form-inline" id="form-search">
+			<div class="col-md-2">
+				<select name="pageSize" id="pageSize" class="form-control">
+					@foreach (pageSize() as $ps)
+						<option @if ($pageSize == $ps)
+							selected
+						@endif value="{{$ps}}">{{$ps}}</option>
+					@endforeach
+				</select>
+			</div>
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="keyword" value="{{$keyword}}">
+				<button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+			</div>
 		</form>
 	</div>
 </div>
@@ -65,5 +76,12 @@
 		});
 	}
 	
+</script>
+<script>
+	$(document).ready(function(){
+		$('#pageSize').on('change', function(){
+			$('#form-search').submit();
+		});
+	});
 </script>
 @endsection

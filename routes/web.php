@@ -15,6 +15,10 @@
 
 
 Route::get('/', function(){
+	// dd(genPass(123456));
+	// dd(clArea(5));
+	// $tables = DB::select('SHOW TABLES');
+	
 	$name = ['Van Toan', 'COng phuong'];
 	$age = 10;
 	$address = "<a href='google.com'>Ha noi, Vietnam</a>";
